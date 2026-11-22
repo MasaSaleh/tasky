@@ -19,9 +19,8 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 3), () {
-      if (!mounted) return; // احتياط: لو الشاشة انسكرت
+      if (!mounted) return;
 
-      // إذا المستخدم سجّل قبل هيك ← Home، غير هيك ← شاشة الإعداد
       final hasUser = Hive.box<UserModel>(AppStrings.userBox)
           .containsKey(AppStrings.userKey);
 
@@ -42,8 +41,6 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // أنيميشن Lottie من المحاضرة. إذا لسا ما نزّلت task_icon.json
-            // بيطلع لوجو Taskati من فيجما بدالها بدون ما ينهار التطبيق.
             Lottie.asset(
               'assets/images/task_icon.json',
               width: 200,

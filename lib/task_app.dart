@@ -7,7 +7,6 @@ class TaskApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // كل ما يتغيّر AppTheme.mode بيتعاد رسم التطبيق بالوضع الجديد
     return ValueListenableBuilder<ThemeMode>(
       valueListenable: AppTheme.mode,
       builder: (context, mode, _) => MaterialApp(

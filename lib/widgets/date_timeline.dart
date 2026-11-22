@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../core/app_colors.dart';
 import '../core/date_helper.dart';
 
-// شريط الأيام الأفقي: OCT / 30 / MON
 class DateTimeline extends StatelessWidget {
   const DateTimeline({
     super.key,
@@ -21,7 +20,7 @@ class DateTimeline extends StatelessWidget {
       height: 100,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: 60, // من اليوم لشهرين لقدّام
+        itemCount: 60,
         itemBuilder: (context, index) {
           final day = DateTime(today.year, today.month, today.day + index);
           final isSelected = DateHelper.sameDay(day, selectedDate);

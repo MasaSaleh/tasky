@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../core/app_colors.dart';
 
-// عنوان (اختياري) + حقل إدخال — بنكرره كتير، فعملناه Widget لحاله
 class CustomTextField extends StatelessWidget {
   const CustomTextField({
     super.key,
@@ -20,9 +19,9 @@ class CustomTextField extends StatelessWidget {
   final TextEditingController? controller;
   final int maxLines;
   final IconData? suffixIcon;
-  final bool readOnly; // للتاريخ والوقت: ما بنكتب، بنضغط فبيفتح Picker
+  final bool readOnly;
   final VoidCallback? onTap;
-  final bool showHintAsValue; // التاريخ/الوقت بينكتبوا بلون النص العادي مش باهت
+  final bool showHintAsValue;
 
   @override
   Widget build(BuildContext context) {

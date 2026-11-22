@@ -15,7 +15,6 @@ class ProfileScreen extends StatelessWidget {
 
   Box<UserModel> get box => Hive.box<UserModel>(AppStrings.userBox);
 
-  // الحقول final، فالتعديل = نعمل مستخدم جديد ونحطه بنفس المفتاح
   void saveUser({String? name, String? image}) {
     final old = box.get(AppStrings.userKey)!;
     box.put(
@@ -26,7 +25,7 @@ class ProfileScreen extends StatelessWidget {
 
   void showImageSheet(BuildContext context) {
     Future<void> pick(ImageSource source) async {
-      Navigator.pop(context); // سكّر الـ sheet
+      Navigator.pop(context);
       final path = await ImageHelper.pick(source);
       if (path != null) saveUser(image: path);
     }
@@ -61,7 +60,7 @@ class ProfileScreen extends StatelessWidget {
 
     showModalBottomSheet(
       context: context,
-      isScrollControlled: true, // عشان الـ sheet يطلع فوق الكيبورد
+      isScrollControlled: true,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
@@ -96,7 +95,6 @@ class ProfileScreen extends StatelessWidget {
           onPressed: () => Navigator.pop(context),
         ),
         actions: [
-          // ☀️ / 🌙 تبديل الوضع الليلي
           ValueListenableBuilder<ThemeMode>(
             valueListenable: AppTheme.mode,
             builder: (context, mode, _) => IconButton(

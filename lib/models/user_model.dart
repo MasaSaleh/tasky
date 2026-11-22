@@ -1,6 +1,6 @@
 import 'package:hive/hive.dart';
 
-part 'user_model.g.dart'; // الملف التوأم (g = generated)
+part 'user_model.g.dart';
 
 @HiveType(typeId: 0)
 class UserModel extends HiveObject {

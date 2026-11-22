@@ -4,7 +4,6 @@ import 'app_colors.dart';
 import 'app_strings.dart';
 
 class AppTheme {
-  // "جرس" بيرن كل ما تغيّر الوضع، والـ MaterialApp بيسمعه وبيعيد الرسم
   static final ValueNotifier<ThemeMode> mode = ValueNotifier(
     Hive.box(AppStrings.settingsBox).get(AppStrings.isDarkKey, defaultValue: false)
         ? ThemeMode.dark
@@ -15,7 +14,7 @@ class AppTheme {
 
   static void toggle() {
     mode.value = isDark ? ThemeMode.light : ThemeMode.dark;
-    Hive.box(AppStrings.settingsBox).put(AppStrings.isDarkKey, isDark); // نتذكّر الاختيار
+    Hive.box(AppStrings.settingsBox).put(AppStrings.isDarkKey, isDark);
   }
 
   static final ThemeData light = ThemeData(

@@ -19,15 +19,13 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final List<TaskModel> tasks = []; // بالذاكرة هلّق — Hive بمحاضرة جاية
+  final List<TaskModel> tasks = [];
   DateTime selectedDate = DateTime.now();
 
-  // مهام اليوم المختار بس
   List<TaskModel> get dayTasks =>
       tasks.where((t) => DateHelper.sameDay(t.date, selectedDate)).toList();
 
   Future<void> openAddTask() async {
-    // بنستنّى الشاشة ترجعلنا المهمة الجديدة بـ Navigator.pop
     final task = await Navigator.push<TaskModel>(
       context,
       MaterialPageRoute(
@@ -63,7 +61,6 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  // Hello, Sayed + الصورة — بيسمع للصندوق فبيتحدّث لما تعدّل البروفايل
   Widget _header() {
     return ValueListenableBuilder(
       valueListenable: Hive.box<UserModel>(AppStrings.userBox).listenable(),
@@ -94,7 +91,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               child: CircleAvatar(
                 radius: 30,
-                backgroundColor: AppColors.primary, // الإطار الأزرق
+                backgroundColor: AppColors.primary,
                 child: UserAvatar(imagePath: user?.image ?? '', radius: 27),
               ),
             ),
@@ -161,7 +158,6 @@ class _HomeScreenState extends State<HomeScreen> {
         final task = list[index];
         return Dismissible(
           key: ObjectKey(task),
-          // سحب لليمين ← Complete (الكرت بيضل)، سحب لليسار ← Delete
           background: _swipeBackground(
             color: AppColors.green,
             icon: Icons.check,
@@ -177,7 +173,7 @@ class _HomeScreenState extends State<HomeScreen> {
           confirmDismiss: (direction) async {
             if (direction == DismissDirection.startToEnd) {
               setState(() => task.isCompleted = true);
-              return false; // ما بدنا الكرت يختفي، بس يصير COMPLETED
+              return false;
             }
             return true;
           },

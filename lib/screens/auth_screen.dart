@@ -10,7 +10,6 @@ import '../widgets/main_button.dart';
 import '../widgets/user_avatar.dart';
 import 'home_screen.dart';
 
-// شاشة إعداد البروفايل (أول مرة): صورة + اسم + Done
 class AuthScreen extends StatefulWidget {
   const AuthScreen({super.key});
 
@@ -42,7 +41,6 @@ class _AuthScreenState extends State<AuthScreen> {
     if (imagePath.isEmpty) return showMessage('Please upload your image');
     if (name.isEmpty) return showMessage('Please enter your name');
 
-    // نخزّن المستخدم بالصندوق (المحاضرة 5 جهّزنا الصندوق، هون استعملناه)
     Hive.box<UserModel>(AppStrings.userBox).put(
       AppStrings.userKey,
       UserModel(name: name, image: imagePath),

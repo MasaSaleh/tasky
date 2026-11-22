@@ -5,11 +5,10 @@ import '../models/task_model.dart';
 import '../widgets/custom_text_field.dart';
 import '../widgets/main_button.dart';
 
-// Stateful لأن الشاشة بتتغيّر: اللون المختار، التاريخ، والوقت
 class AddTaskScreen extends StatefulWidget {
   const AddTaskScreen({super.key, required this.initialDate});
 
-  final DateTime initialDate; // اليوم المختار بالـ Home
+  final DateTime initialDate;
 
   @override
   State<AddTaskScreen> createState() => _AddTaskScreenState();
@@ -22,11 +21,10 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
   late DateTime selectedDate = widget.initialDate;
   TimeOfDay startTime = TimeOfDay.now();
   TimeOfDay endTime = TimeOfDay.now();
-  int selectedColor = 0; // رقم اللون بقائمة AppColors.taskColors
+  int selectedColor = 0;
 
   @override
   void dispose() {
-    // نرجّع الذاكرة لما تتسكّر الشاشة
     titleController.dispose();
     descriptionController.dispose();
     super.dispose();
@@ -67,7 +65,6 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
       return;
     }
 
-    // نرجّع المهمة للشاشة اللي فتحتنا (Home)
     Navigator.pop(
       context,
       TaskModel(
@@ -104,7 +101,6 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
           padding: const EdgeInsets.all(16),
           child: Column(
             children: [
-              // Expanded + ScrollView: الحقول بتنزل لتحت، والزر ثابت بالأسفل
               Expanded(
                 child: SingleChildScrollView(
                   child: Column(

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../core/app_colors.dart';
 
-// الزر الأزرق المتكرر: Create Task / Upload From Camera / Update Your Name ...
 class MainButton extends StatelessWidget {
   const MainButton({
     super.key,

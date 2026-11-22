@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../core/app_colors.dart';
 import '../models/task_model.dart';
 
-// كرت المهمة الملوّن + كلمة TODO/COMPLETED بالطول على اليمين
 class TaskCard extends StatelessWidget {
   const TaskCard({super.key, required this.task});
 
@@ -51,7 +50,7 @@ class TaskCard extends StatelessWidget {
           Container(width: 1, height: 70, color: white.withValues(alpha: 0.6)),
           const SizedBox(width: 10),
           RotatedBox(
-            quarterTurns: 3, // نلف النص 270 درجة فيصير بالطول
+            quarterTurns: 3,
             child: Text(
               task.isCompleted ? 'COMPLETED' : 'TODO',
               style: const TextStyle(
